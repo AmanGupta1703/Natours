@@ -18,14 +18,23 @@
 		border-radius: 3px;
 		display: table;
 		overflow: hidden;
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.25);
-        transition: all 0.5s 0.2s;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.25);
+		transition: all 0.5s 0.2s;
+
+		@include respond(tab-port) {
+			display: block;
+		}
 	}
 
 	&__left {
 		width: 33.333333%;
 		display: table-cell;
+
+		@include respond(tab-port) {
+			width: 100%;
+			display: block;
+		}
 	}
 
 	&__right {
@@ -33,11 +42,28 @@
 		display: table-cell;
 		vertical-align: middle;
 		padding: 3rem 5rem;
+
+		@include respond(tab-port) {
+			width: 100%;
+			display: block;
+
+		}
 	}
 
 	&__img {
 		display: block;
 		width: 100%;
+
+        @include respond(tab-port) {
+            display: inline-block;
+            width: 49%;
+            
+        }
+
+        @include respond(tab-land) {
+            height: 28rem;
+            object-fit: cover;
+        }
 	}
 
 	&__text {
@@ -51,16 +77,16 @@
 		hyphens: auto;
 	}
 
-    // OPEN STATES
+	// OPEN STATES
 	&:target {
 		opacity: 1;
 		visibility: visible;
 	}
 
-    &:target &__content {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-    }
+	&:target &__content {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
 
 	&__close {
 		&:link,
